@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dodging Tables - Select Grade</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Select Your Grade and Level</h1>
+    
+    <!-- Grade selection -->
+    <label for="grade-select">Choose a Grade:</label>
+    <select id="grade-select">
+      <option value="" disabled selected>Select Grade</option>
+      <option value="grade1A">Grade 1A</option>
+      <option value="grade1B">Grade 1B</option>
+      <option value="grade2A">Grade 2A</option>
+      <option value="grade3A">Grade 3A</option>
+      <option value="grade3B">Grade 3B</option>
+      <option value="grade4A">Grade 4A</option>
+      <option value="grade5A">Grade 5A</option>
+      <option value="grade6A">Grade 6A</option>
+      <option value="grade7A">Grade 7A</option>
+      <option value="grade8A">Grade 8A</option>
+      <option value="grade9A">Grade 9A</option>
+      <option value="grade10A">Grade 10A</option>
+    </select>
+
+    <!-- Difficulty selection -->
+    <label for="level-select">Choose Difficulty:</label>
+    <select id="level-select">
+      <option value="" disabled selected>Select Level</option>
+      <option value="easy">Easy (Tables 3-9)</option>
+      <option value="medium">Medium (Tables 3-15)</option>
+      <option value="hard">Hard (Tables 3-20)</option>
+    </select>
+
+    <button onclick="startGame()">Start Game</button>
+  </div>
+
+  <!-- Load student data -->
+  <script src="students.js"></script>
+  <script>
+ function startGame() {
+      const grade = document.getElementById('grade-select').value;
+      const level = document.getElementById('level-select').value;
+      
+      if (!grade || !level) {
+        alert("Please select both grade and level!");
+        return;
+      }
+
+      // Redirect to game.html with grade and level as URL parameters
+      window.location.href = `game.html?grade=${grade}&level=${level}`;
+    }
+  </script>
+</body>
+</html>
